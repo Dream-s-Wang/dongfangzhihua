@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.hua</groupId>
 	<artifactId>hua</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>hua</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -79,6 +79,16 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- <configuration>
+					<mainClass>com.hua.HuaApplication</mainClass>
+				</configuration>
+				<executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions> -->
 			</plugin>
 		</plugins>
 	</build>
