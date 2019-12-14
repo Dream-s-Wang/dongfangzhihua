@@ -19,24 +19,24 @@ public class ViewpointImpl implements ViewpointService {
 	public void insert(Viewpoint viewpoint) {
 
 		jdbcTemplate.update(
-				"insert into `data`(id,province,city,area,name,type,nationality,introduction,address,route,time,phone,ticket,images) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+				"insert into `data`(id,province,city,area,name,type,nationality,introduction,address,things,time,phone,ticket,images,grade,era) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
 				viewpoint.getIdInt(), viewpoint.getProvinceString(), viewpoint.getCityString(),
 				viewpoint.getAreaString(), viewpoint.getNameString(), viewpoint.getTypeString(),
 				viewpoint.getNationalityString(), viewpoint.getIntroductionString(), viewpoint.getAddressString(),
-				viewpoint.getRouteString(), viewpoint.getTimeString(), viewpoint.getPhoneString(),
-				viewpoint.getTicketString(), viewpoint.getImagesString());
+				viewpoint.getThingsString(), viewpoint.getTimeString(), viewpoint.getPhoneString(),
+				viewpoint.getTicketString(), viewpoint.getImagesString(),viewpoint.getGradeString(),viewpoint.getEraString());
 	}
 
 	@Override
 	public void update(Viewpoint viewpoint) {
 
 		jdbcTemplate.update(
-				"update `data` set id=?, province=?, city=?, area=?, name=?,type=?, nationality=?, introduction=?, address=?, route=?, time=?, phone=?, ticket=?,images=? where id=?",
-				viewpoint.getIdInt(), viewpoint.getProvinceString(), viewpoint.getCityString(),
+				"update `data` set  province=?, city=?, area=?, name=?,type=?, nationality=?, introduction=?, address=?, things=?, time=?, phone=?, ticket=?,images=? ,grade=? ,era=? where id=?",
+				viewpoint.getProvinceString(), viewpoint.getCityString(),
 				viewpoint.getAreaString(), viewpoint.getNameString(), viewpoint.getTypeString(),
 				viewpoint.getNationalityString(), viewpoint.getIntroductionString(), viewpoint.getAddressString(),
-				viewpoint.getRouteString(), viewpoint.getTimeString(), viewpoint.getPhoneString(),
-				viewpoint.getTicketString(), viewpoint.getImagesString(), viewpoint.getIdInt());
+				viewpoint.getThingsString(), viewpoint.getTimeString(), viewpoint.getPhoneString(),
+				viewpoint.getTicketString(), viewpoint.getImagesString(),viewpoint.getGradeString(),viewpoint.getEraString(), viewpoint.getIdInt());
 
 	}
 

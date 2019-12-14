@@ -19,12 +19,14 @@ public class Viewpoint {
 	private String nameString;
 	private String typeString;
 	private String nationalityString;
+	private String gradeString;
 	private String introductionString;
-	private String addressString;
-	private String routeString;
-	private String timeString;
-	private String phoneString;
+	private String eraString;
+	private String thingsString;
 	private String ticketString;
+	private String addressString;
+	private String phoneString;
+	private String timeString;
 	private String imagesString;
 	
 }
