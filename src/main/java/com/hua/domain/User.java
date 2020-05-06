@@ -4,7 +4,7 @@ package com.hua.domain;
 import lombok.Data;
 
 @Data
-public class User{
+public class User {
 
     Integer id;
     String username;

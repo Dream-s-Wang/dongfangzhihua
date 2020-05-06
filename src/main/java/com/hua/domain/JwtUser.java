@@ -7,14 +7,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
-
 public class JwtUser implements UserDetails {
 
-    /**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
-	private Integer id;
+    private static final long serialVersionUID = 1L;
+    private Integer id;
     private String username;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
@@ -22,7 +18,6 @@ public class JwtUser implements UserDetails {
     public JwtUser() {
     }
 
-    // 写一个能直接使用user创建jwtUser的构造器
     public JwtUser(User user) {
         id = user.getId();
         username = user.getUsername();
@@ -74,5 +69,4 @@ public class JwtUser implements UserDetails {
                 ", authorities=" + authorities +
                 '}';
     }
-
 }

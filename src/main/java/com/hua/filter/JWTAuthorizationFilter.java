@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collections;
 
-/**
- * Created by echisan on 2018/6/23
- */
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
     public JWTAuthorizationFilter(AuthenticationManager authenticationManager) {
@@ -30,21 +27,24 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                                     HttpServletResponse response,
                                     FilterChain chain) throws IOException, ServletException {
 
+        System.out.println(JwtTokenUtils.TOKEN_HEADER);
         String tokenHeader = request.getHeader(JwtTokenUtils.TOKEN_HEADER);
-        // 如果请求头中没有Authorization信息则直接放行了
+
         if (tokenHeader == null || !tokenHeader.startsWith(JwtTokenUtils.TOKEN_PREFIX)) {
             chain.doFilter(request, response);
             return;
         }
-        // 如果请求头中有token，则进行解析，并且设置认证信息
+
         try {
+            System.out.println("taken=" + tokenHeader);
+
             SecurityContextHolder.getContext().setAuthentication(getAuthentication(tokenHeader));
         } catch (TokenIsExpiredException e) {
-            //返回json形式的错误信息
+
             response.setCharacterEncoding("UTF-8");
             response.setContentType("application/json; charset=utf-8");
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-            String reason = "统一处理，原因：" + e.getMessage();
+            String reason = "taken出错，原因：" + e.getMessage();
             response.getWriter().write(new ObjectMapper().writeValueAsString(reason));
             response.getWriter().flush();
             return;
@@ -52,7 +52,6 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         super.doFilterInternal(request, response, chain);
     }
 
-    // 这里从token中获取用户信息并新建一个token
     private UsernamePasswordAuthenticationToken getAuthentication(String tokenHeader) throws TokenIsExpiredException {
         String token = tokenHeader.replace(JwtTokenUtils.TOKEN_PREFIX, "");
         boolean expiration = JwtTokenUtils.isExpiration(token);

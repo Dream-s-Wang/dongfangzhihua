@@ -1,8 +1,5 @@
 package com.hua.model;
 
-/**
- * Created by echisan on 2018/6/23
- */
 public class LoginUser {
 
     private String username;

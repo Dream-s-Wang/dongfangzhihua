@@ -12,21 +12,23 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Viewpoint {
-	private int idInt;
-	private String provinceString;
-	private String cityString;
-	private String areaString;
-	private String nameString;
-	private String typeString;
-	private String nationalityString;
-	private String gradeString;
-	private String introductionString;
-	private String eraString;
-	private String thingsString;
-	private String ticketString;
-	private String addressString;
-	private String phoneString;
-	private String timeString;
-	private String imagesString;
-	
+    private int id;
+    private String province;
+    private String city;
+    private String area;
+    private String name;
+    private String type;
+    private String nationality;
+    private String grade;
+    private String introduction;
+    private String era;
+    private String things;
+    private String ticket;
+    private String address;
+    private String phone;
+    private String time;
+    private String images;
+    private String latitude;
+    private String longitude;
+
 }
